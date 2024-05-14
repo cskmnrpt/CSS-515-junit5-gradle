@@ -26,7 +26,6 @@ dependencies {
 }
 
 
-
 // Apply a specific Java toolchain to ease working on different environments.
 java {
     toolchain {
@@ -42,4 +41,9 @@ application {
 test {
     systemProperty("junit.jupiter.extensions.autodetection.enabled", true)
     useJUnitPlatform()
+
+    environment "QASE_ENABLE", System.getProperty("QASE_ENABLE")
+    environment "QASE_PROJECT_CODE", System.getProperty("QASE_PROJECT_CODE")
+    environment "QASE_RUN_NAME", System.getProperty("QASE_RUN_NAME")
+    environment "QASE_API_TOKEN", System.getProperty("QASE_API_TOKEN")
 }
